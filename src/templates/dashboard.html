@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{%block title%} Dashboard {%endblock%}
+{%block content%}
+<div class="container">
+    {{ "{%app_entry%}" }}
+    <footer>
+        {{ "{%config%}" }}
+        {{ "{%scripts%}" }}
+        {{ "{%renderer%}" }}
+    </footer>
+</div>
+{%endblock%}

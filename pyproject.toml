@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pressure-log"
+version = "0.1.0"
+description = ""
+authors = ["WildElaeagnus <54314123+akorzunin@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "pressure_log"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.18.3"
+dash = "^2.6.1"
+fastapi = "^0.82.0"
+tinydb = "^4.7.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+mypy = "^0.971"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
