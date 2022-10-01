@@ -1,7 +1,7 @@
 import json
 import dash
 from dash.dependencies import Input, Output
-from dash import dcc, html
+from dash import dcc, html, dash_table
 import plotly.express as px
 
 # import flask
@@ -9,10 +9,12 @@ import pandas as pd
 import os
 from datetime import datetime
 import plotly.graph_objects as go
+from src.calc_stats import prepare_data_for_stats
 
 from src.db_conn import users
 from src import crud
 from src.fig_handler import render_fig
+from src.stats_table import render_stats_table
 
 
 def create_dash_app(
@@ -38,12 +40,20 @@ def create_dash_app(
         "external_url"
     ] = "https://cdn.plot.ly/plotly-basic-latest.min.js"
 
+    current_user = 1
+    stats_data = prepare_data_for_stats(crud.get_user(users, current_user))
+
     app.layout = html.Div(
         [
-            html.H1("Pressure Data"),
-            dcc.Graph(id="pressure-graph", figure=fig),
-        ],
-        className="container",
+            html.Div(
+                [
+                    html.H1("Pressure Data"),
+                    dcc.Graph(id="pressure-graph", figure=fig),
+                ],
+                className="container",
+            ),
+            render_stats_table(stats_data),
+        ]
     )
 
     @app.callback(
