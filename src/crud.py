@@ -1,8 +1,6 @@
 from tinydb import where
 from tinydb.table import Table
 from src import shemas
-from src.db_conn import users
-from datetime import datetime
 
 
 def get_user(db, user_id: int) -> dict:

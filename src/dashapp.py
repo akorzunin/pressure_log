@@ -1,16 +1,8 @@
-import json
 import dash
 from dash.dependencies import Input, Output
-from dash import dcc, html, dash_table
-import plotly.express as px
+from dash import dcc, html
 
-# import flask
-import pandas as pd
-import os
-from datetime import datetime
-import plotly.graph_objects as go
 from src.calc_stats import prepare_data_for_stats
-
 from src.db_conn import users
 from src import crud
 from src.fig_handler import render_fig
