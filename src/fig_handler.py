@@ -4,27 +4,33 @@ import plotly.graph_objects as go
 
 def render_fig(data):
     x0, x1, p0, xt = parse_fig_data(data)
-
+    fig_settings = {
+        # 'width': 100
+    }
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
             x=xt,
             y=x0,
-            name="up",
+            name="systolic [mmHg]",
+            # width=[0.8]*len(xt),
+            **fig_settings,
         )
     )
     fig.add_trace(
         go.Bar(
             x=xt,
             y=x1,
-            name="down",
+            name="diastolic [mmHg]",
+            **fig_settings,
         )
     )
     fig.add_trace(
         go.Bar(
             x=xt,
             y=p0,
-            name="pulse",
+            name="pulse [bpm]",
+            **fig_settings,
         )
     )
     fig = fig.update_traces(

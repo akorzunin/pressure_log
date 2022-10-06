@@ -11,7 +11,7 @@
         <link
             rel="shortcut icon"
             type="image/jpg"
-            href="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-woman-avatar-with-mask-vitaliy-gorbachev-lineal-vitaly-gorbachev-19.png"
+            href="https://img.icons8.com/material/344/pulse.png"
         />
     </head>
 
@@ -38,11 +38,29 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashapp">Stats</a>
+                        <a class="nav-link" href="/data">Data</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/actions">Actions</a>
-                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                        Export
+                    </a>
+                    <div class="dropdown-menu"
+                        aria-labelledby="navbarDropdown">
+                        <a class="nav-link"
+                            href="/pressure_log_json"
+                            download>To json</a>
+                        <a class="nav-link"
+                            href="/export_txt/pressure_log_ru"
+                            download>To txt (ru)</a>
+                        <a class="nav-link"
+                            href="/export_txt/pressure_log_en"
+                            download>To txt (en)</a>
+                    </div></li>
                 </ul>
             </div>
         </nav>
