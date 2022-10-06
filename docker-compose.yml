@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  pressurelog:
+    image: pressurelog
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        MASHINE: ${MASHINE}
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data

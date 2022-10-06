@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  pressurelog:
+    image: pressurelog
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        MASHINE: ${MASHINE}
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 main.py "]
+    ports:
+      - ${PORT}:${PORT}
+      - 5678:5678
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
